@@ -1,7 +1,0 @@
-{
-definir Edad;
-Edad<- -18;
-si (Edad<18){
-imprimir Edad++;
-}
-}

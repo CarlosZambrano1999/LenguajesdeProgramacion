@@ -7,15 +7,17 @@ void leerCaracter(char c);
 void Estado();
 void buscarIndicador();
 
-char *Indicador[] = {"si","sino","finsi","repetir","hasta","mientras","leer","imprimir","cursor","definir"};
-int tamanioIndicador=sizeof(Indicador)/sizeof(char *);
-int i;
-int estado=0;
-char identificador[100];
-char temp[2];
+
 
 int main( )
 {
+	char *Indicador[] = {"si","sino","finsi","repetir","hasta","mientras","leer","imprimir","cursor","definir"};
+	int tamanioIndicador=sizeof(Indicador)/sizeof(char *);
+	int i;
+	int estado=0;
+	char identificador[100];
+	char temp[2];
+   
    FILE *fp ;
    
    printf( "Abriendo archivo" ) ;
@@ -57,17 +59,7 @@ int main( )
  
 }
 
-void buscarIndicador(){
-	for(int i=0;i<tamanioIndicador;i++){
-		if(strcmp(Indicador[i],identificador)==0){
-			printf("<TOKEN_%s>",Indicador[i]);
-			identificador[0]='\0';
-			break;
-			}
-		if(i==(tamanioIndicador)-1){printf("\nError no hay ID");exit(-1);}
-		}
-		
-	}
+
 
 void Estado(){
 	switch(estado){
@@ -243,3 +235,19 @@ void leerCaracter(char c){
 		
 		}
 }
+
+
+void buscarIndicador(){
+	char *Indicador[] = {"si","sino","finsi","repetir","hasta","mientras","leer","imprimir","cursor","definir"};
+	int tamanioIndicador=sizeof(Indicador)/sizeof(char *);
+	char identificador[100];
+	for(int i=0;i<tamanioIndicador;i++){
+		if(strcmp(Indicador[i],identificador)==0){
+			printf("<TOKEN_%s>",Indicador[i]);
+			identificador[0]='\0';
+			break;
+			}
+		if(i==(tamanioIndicador)-1){printf("\nError no hay ID");exit(-1);}
+		}
+		
+	}

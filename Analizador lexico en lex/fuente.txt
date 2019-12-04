@@ -1,0 +1,8 @@
+{
+definir Edad;
+Maria<-"mujer"
+Edad<- -18;
+si (Edad<18){
+imprimir Edad++;
+}
+}

@@ -1,0 +1,36 @@
+BNF
+<estructura>:: = "{"<declaraciones> <cuerpo>"}"
+<declaraciones>:: =<declaracion> |<declaraciones><declaracion>
+<declaracion>:: = “definir ” <variable>”como”<tipo>  “;”
+<asigna_variable>:: = <variable> <operador_asignacion> < expresión >”;”
+< variable>::= < Mayus>| <Mayus><digito>
+<Mayus>::=“A”|”B”|”C”|”D”|”E”|”F”|”G”|”H”|”I”|”J”|”K”|”L”|”M”|”N”|”Ñ”|”O”|”P”|”Q”|”R”|”S”|”T”|”U”|”V”|”W”|”X”|”Y”|”Z”
+<digito>::=<Mayus>| <letra>| <numero>|<digito><numero>| <digito><letra>|<digito><Mayus>
+<expresion>::= <base> |<base><operador><base>
+<base>::= <variable> | <constante_entero> |<constante_real> |”<constante_cadena>” |<constante_caracter>| <constante_booleano >
+<constante_entero>::=<numero>|<signo><numero> |<constante_entero><numero>
+<numero>::=”0” |”1”|”2”|”3”|”4”|”5”|”6”|”7” |”8”|”9”
+<signo>::=”-“|”+”
+<numeros>::=<numero> |<numeros><numero>
+<constante_real>::=<constante_entero> |<constante_real>”.”<numeros>
+<constante_caracter>::=<letra>
+<letra>::=”a”|”b”|”c”|”d”|”e”|”f”|”g”|”h”|”i”|”j”|”k”|”l”|”m”|”n”|”ñ”|”o”|”p”|”q”|”r”|”s”|”t”|”u”|”v”|”w”|”x”|”y”|”z”
+<constante_cadena>::=<letra> |<constante cadena><letra>
+<constante_booleano>::=”verdadero” |”falso”
+<operador_asignacion>::=“<-”
+<operador>::=”+” |”-” |”*” |”/” |”!=” | “<”|”>”|”<=” |”>=”
+<tipo> ::= “entero” | “real” | “cadena” | “booleano” | “caracter”
+<cuerpo> ::= <asignar> | <lectura>  | <impresion> | <decisión simple> | <ciclo repetir> | <ciclo mientras> |<cuerpo>  <asignar>| <cuerpo>  <lectura> |<cuerpo>  <impresion> | <cuerpo> <decisión simple> |<cuerpo>  <ciclo repetir> |<cuerpo>  <ciclo mientras>  
+<asignar> ::=<asigna_variable>| <variable> <operador_autoincremento>
+<operador_autoincremento> ::= “++” | “--”
+<lectura> ::= <variable> <operador_asignacion> “leer” <expresión_cadena> “;”
+<expresión cadena>::= <constante_entero> |<constante_real> | <constante_cadena> |<constante_caracter>|<constante_booleano >
+<indicadores>::=”si”|”sino”|”finsi”|”repetir”|”hasta”|”mientras” |”leer”|”imprimir” |”{”|”}”|”cursor” |”(”|”)”
+<impresion> ::= “imprimir” <base>“;”
+<decision> ::= “si” “(“ <expresión> “)” “{” <cuerpo> “}” 
+<decisión_sino>::= ”sino” “{” <cuerpo> “}” 
+<decisión_anidada>::=<decisión>|<decisión_anidada><decisión>|<decisión_anidada><decisión_sino> |
+<decisión_simple>::=<decisión_anidada>”finsi”
+<ciclo_repetir>::= “repetir” <cuerpo> “hasta” <expresion>
+<ciclo:mientras>::= “mientras” <expresion> “repetir” <cuerpo>
+<cursor>::=“cursor” ”(”<constante entero>”)” “,” “(”<constante entero>”)”

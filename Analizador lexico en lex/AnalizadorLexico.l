@@ -104,7 +104,9 @@ Salir	 { Salir();
 ;   
 
 
-[ \t\n]+          /* se come los espacios en blanco */
+"{"[^}\n]*"}"     
+[ \t\n]+          
+
 .           fputs( "ERROR: %s\n", yyout );
             fputs(yytext,yyout);
             fputs("\n",yyout);
@@ -114,7 +116,7 @@ Salir	 { Salir();
 int main(int argc, char *argv[]){
  FILE *fp ;
    
-   printf( "Escribir fuente.txt depues del ./ejecutable.out \n" ) ;
+   printf( "Escribir fuente.txt depues del ./ejecutable.out \n abrir archivo salida.txt" ) ;
    
    fp = fopen ( "fuente.txt", "r" ) ; 
    

@@ -1,6 +1,6 @@
 {
 definir Edad;
-Maria<-"mujer"
+Maria<-"mujer hermosa";
 Edad<- -18;
 si (Edad<18){
 imprimir Edad++;

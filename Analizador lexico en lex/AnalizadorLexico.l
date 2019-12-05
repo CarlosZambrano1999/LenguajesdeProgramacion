@@ -25,7 +25,7 @@ operador "*"|"/"
 operadorPositivo "+"
 operadorNegativo "-"
 numeroComp {numero}|{operadorNegativo}{numero}
-
+cadena ({comillas}({digito}" "{digito})*{comillas})
 /*30*/
 
 
@@ -75,7 +75,7 @@ numeroComp {numero}|{operadorNegativo}{numero}
             fputs( "TOKEN_CHAR: %s\n", yyout );
            
             }
-{comillas}{digito}{comillas} {
+{cadena}+ {
             fputs( "TOKEN_CADENA: %s\n", yyout );
            
             }
@@ -116,7 +116,7 @@ Salir	 { Salir();
 int main(int argc, char *argv[]){
  FILE *fp ;
    
-   printf( "Escribir fuente.txt depues del ./ejecutable.out \n abrir archivo salida.txt" ) ;
+   printf( "Escribir fuente.txt depues del ./ejecutable.out \n abrir archivo salida.txt \n" ) ;
    
    fp = fopen ( "fuente.txt", "r" ) ; 
    
